@@ -4,17 +4,17 @@
 # Based on work from the book "Python for Everybody"
 #
 #
-# Chapter 5 Exercise 1 on Page 64
+# Chapter 5 Exercise 2 on Page 65
 #
 
 # Program to accept numbers until "done" is entered.
-#   When "done" is entered return: Total, Count and Average
+#   When "done" is entered return: Maximum and Minimum
 #   If a none number is entered, use try & except to give an error
 #   message and then request another number.
 #
-# Set initial values for Total & Count
+# Set initial values for maximum & minimum
 
-total = count = 0
+maximum = minimum = None
 
 # Use try to catch non-numeric data entry
 
@@ -27,18 +27,17 @@ while True:
     if rawData == "done":
         break
     try:
-        total = total + int(rawData)
-        count = count + 1
+        waste = int(rawData)
+        if maximum is None or rawData > maximum:
+            maximum = rawData
+        if minimum is None or rawData < minimum:
+            minimum = rawData
     except:
         print("\n\tPlease enter only numbers!")
 
-    # When "done" is entered, calculate average
-average = (total / count)
+# When "done" is entered, print the Maximum and Minimum values entered
 
 # Print the results
-print("\nTotal of numbers entered is:", total)
-print("Count of numbers entered:", count)
-print("\tAverage of the numbers entered is:", average)
-
-# If non-numeric data is entered, print the following message
+print("\nThe Maximum value entered was:", maximum)
+print("The Minimum value entered was:", minimum)
 
